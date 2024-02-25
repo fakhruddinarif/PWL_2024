@@ -1,66 +1,97 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Jobsheet 2: Routing, Controller, Dan View
+> Nama  : Muhammad Fakhruddin Arif
+> 
+> Kelas : TI-2F
+> 
+> Nomor : 21
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Routing
+### Basic Routing
+- get:/hello
 
-## About Laravel
+<img src="public/screenshoot/pratikum1_hello.png">
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- get:/world
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<img src="public/screenshoot/pratikum1_world.png">
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Halaman yang muncul sudah sesuai dengan return data tersebut
 
-## Learning Laravel
+- get:/
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+  <img src="public/screenshoot/pratikum1_welcome.png">
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- get:/about
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<img src="public/screenshoot/pratikum1_about.png">
 
-## Laravel Sponsors
+### Route Parameters
+- get:/user/{name}
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+<img src="public/screenshoot/route_parameter_name.png">
 
-### Premium Partners
+Data yang muncul untuk {name} akan sesuai url yang kita input
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- get:/posts/{post}/comments/{comment}
 
-## Contributing
+<img src="public/screenshoot/route_parameter_postcomment.png">
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Halaman yang muncul yaitu akan ada tulisan Pos "Ke-1 Komentar Ke-5"
 
-## Code of Conduct
+- get:/articles/{id}
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<img src="public/screenshoot/route_parameter_article.png">
 
-## Security Vulnerabilities
+### Optional Parameters
+- get:/user/{name?} $name = null
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Tidak akan ada nama yang muncul karena bersifat NULL
 
-## License
+<img src="public/screenshoot/route_optional_null.png">
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- get:/user/{name?} $name = "John"
+
+Jika data tidak diisi maka akan muncul nama "John"
+
+<img src="public/screenshoot/route_optional_john.png">
+
+## Controller
+### Create Controller
+- get:/hello
+
+<img src="public/screenshoot/controller_hello.png">
+
+Akan muncul kalimat "Hello World"
+
+- get:/
+
+<img src="public/screenshoot/page_index.png">
+
+- get:/about
+
+<img src="public/screenshoot/page_about.png">
+
+- get:/articles/{id}
+
+<img src="public/screenshoot/page_articles.png">
+
+### Resource Controller
+
+<img src="public/screenshoot/list_route.png">
+
+## View
+### Create View
+
+<img src="public/screenshoot/view_greeting.png">
+
+### View dalam direktori
+Data akan sama yang keluar adalah "Hello, Andi" karena cuma memindah file ke dalam folder blog
+
+### Menampilkan View dari Controller
+Data akan sama cuma perbedaan pada peletakan pada view didalam controller
+
+### Meneruskan data ke view
+
+<img src="public/screenshoot/dataToView.png">
+
+Akan ada tambahan pada output yaitu occupation  pada hasil tampilan
